@@ -1,15 +1,15 @@
 module Main where
 
-import Control.Applicative
-import Prelude
-import Build_doctests (deps)
-import Control.Monad
-import Data.List
-import Data.Monoid
-import System.Directory
-import System.FilePath
-import System.IO
-import Test.DocTest
+import           Build_doctests      (deps)
+import           Control.Applicative
+import           Control.Monad
+import           Data.List
+import           Data.Monoid
+import           Prelude
+import           System.Directory
+import           System.FilePath
+import           System.IO
+import           Test.DocTest
 
 main ::
   IO ()
@@ -43,24 +43,24 @@ preferredOrderFirst sources =
 preferredOrder :: [String]
 preferredOrder = map (\f -> "src/Course" </> f <.> "hs") [
       "List"
-    , "Functor"
-    , "Applicative"
-    , "Monad"
-    , "FileIO"
-    , "State"
-    , "StateT"
-    , "Extend"
-    , "Comonad"
-    , "Compose"
-    , "Traversable"
-    , "ListZipper"
-    , "Parser"
-    , "MoreParser"
-    , "JsonParser"
-    , "Interactive"
-    , "Anagrams"
-    , "FastAnagrams"
-    , "Cheque"
+    {-, "Functor"     -}
+    {-, "Applicative" -}
+    {-, "Monad"       -}
+    {-, "FileIO"      -}
+    {-, "State"       -}
+    {-, "StateT"      -}
+    {-, "Extend"      -}
+    {-, "Comonad"     -}
+    {-, "Compose"     -}
+    {-, "Traversable" -}
+    {-, "ListZipper"  -}
+    {-, "Parser"      -}
+    {-, "MoreParser"  -}
+    {-, "JsonParser"  -}
+    {-, "Interactive" -}
+    {-, "Anagrams"    -}
+    {-, "FastAnagrams"-}
+    {-, "Cheque"      -}
     ]
 
 isSourceFile ::
