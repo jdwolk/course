@@ -274,8 +274,8 @@ find f = headOr Empty . map Full . filter f
 lengthGT4 ::
   List a
   -> Bool
-lengthGT4 =
-  error "todo: Course.List#lengthGT4"
+lengthGT4 (_ :. _ :. _ :. _ :. _ :. _) = True
+lengthGT4 _ = False
 
 -- | Reverse a list.
 --
@@ -291,8 +291,7 @@ lengthGT4 =
 reverse ::
   List a
   -> List a
-reverse =
-  error "todo: Course.List#reverse"
+reverse = foldLeft (flip $ (:.)) Nil
 
 -- | Produce an infinite `List` that seeds with the given value at its head,
 -- then runs the given function for subsequent elements
@@ -306,23 +305,22 @@ produce ::
   (a -> a)
   -> a
   -> List a
-produce =
-  error "todo: Course.List#produce"
+produce f a = a :. (produce f $ f a)
 
--- | Do anything other than reverse a list.
--- Is it even possible?
---
--- >>> notReverse Nil
--- []
---
--- prop> let types = x :: List Int in notReverse x ++ notReverse y == notReverse (y ++ x)
---
--- prop> let types = x :: Int in notReverse (x :. Nil) == x :. Nil
-notReverse ::
-  List a
-  -> List a
-notReverse =
-  error "todo: Is it even possible?"
+{--- | Do anything other than reverse a list.                                              -}
+{--- Is it even possible?                                                                  -}
+{---                                                                                       -}
+{--- >>> notReverse Nil                                                                    -}
+{--- []                                                                                    -}
+{---                                                                                       -}
+{--- prop> let types = x :: List Int in notReverse x ++ notReverse y == notReverse (y ++ x)-}
+{---                                                                                       -}
+{--- prop> let types = x :: Int in notReverse (x :. Nil) == x :. Nil                       -}
+{-notReverse ::                                                                            -}
+{-  List a                                                                                 -}
+{-  -> List a                                                                              -}
+{-notReverse lst@(x :. Nil) = lst                                                          -}
+{-notReverse _ = Nil                                                                       -}
 
 ---- End of list exercises
 
